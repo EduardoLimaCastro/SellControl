@@ -10,13 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@commitlint/cli": "^18.6.0",
-    "@commitlint/config-conventional": "^18.6.0",
-    "@release-it/conventional-changelog": "^8.0.1",
-    "husky": "^9.0.10",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "release-it": "^17.0.3"
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.43",
@@ -29,35 +24,5 @@
     "eslint-plugin-react-refresh": "^0.4.5",
     "typescript": "^5.2.2",
     "vite": "^5.0.8"
-  },
-  "release-it": {
-    "git": {
-      "commitMessage": "chore: release v${version}"
-    },
-    "github": {
-      "release": true
-    },
-    "npm": {
-      "release": false
-    },
-    "plugins": {
-      "@release-it/conventional-changelog": {
-        "infile": "CHANGELOG.md",
-        "preset": {
-          "name": "conventionalcommits",
-          "types": [
-            {
-              "type": "feat",
-              "sectiom": "Features"
-            },
-            {
-              "type": "fix",
-              "sectiom": "Bug Fixes"
-            },
-            {}
-          ]
-        }
-      }
-    }
   }
 }
