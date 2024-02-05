@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import SupplierList from "../Components/SupplierList";
-import { SupplierListProps } from "../Components/SupplierList";
+import { mask } from "remask";
 import {
   Box,
   FilledInput,
@@ -13,9 +12,14 @@ import {
 } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 
+import SupplierList from "../Components/SupplierList";
+import { SupplierListProps } from "../Components/SupplierList";
+import { useSectionInView } from "../../shared/libs/hooks";
+
 const SuppliersSite = () => {
   const [items, setItems] = useState({} as SupplierListProps);
   const [cnpjSearch, setCnpjSearch] = useState("");
+  const { ref } = useSectionInView("Fornecedores");
 
   useEffect(() => {
     fetch("https://brasilapi.com.br/api/cnpj/v1/34284090000101")
@@ -32,13 +36,15 @@ const SuppliersSite = () => {
   };
 
   const onChangeSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setCnpjSearch(event.target.value);
+    setCnpjSearch(mask(event.target.value, "99.999.999-9999-99"));
   };
 
   return (
-    <div>
-      <p>SuppliersSite works</p>
-
+    <section
+      ref={ref}
+      className="bg-[#EBF2FC] h-screen w-[100%] pt-[60px]"
+      id="suppliers"
+    >
       <div className="center flex-col gap-6">
         <Box
           component="form"
@@ -56,6 +62,8 @@ const SuppliersSite = () => {
                 placeholder="00.000.000/0000-00"
                 label="cnpj"
                 onChange={onChangeSearch}
+                inputProps={{ maxLength: 18 }}
+                value={cnpjSearch}
               />
             </FormControl>
             <IconButton
@@ -114,9 +122,9 @@ const SuppliersSite = () => {
         bairro={items.bairro}
         cep={items.cep}
         uf={items.uf}
-        ddd_telefone1={items.ddd_telefone1}
+        ddd_telefone_1={items.ddd_telefone_1}
       ></SupplierList>
-    </div>
+    </section>
   );
 };
 
