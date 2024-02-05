@@ -1,4 +1,4 @@
-import React, { ReactNode, createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useState } from "react";
 import { links } from "../libs/data";
 
 export type SectionName = (typeof links)[number]["name"];

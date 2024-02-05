@@ -10,7 +10,7 @@ const NavLinks = () => {
   return (
     <ul className=" hidden tablet:block">
       <div className="flex justify-center h-[40px] items-center mx-4 rounded-lg hover:text-[#1E4847]">
-        <ul className="flex w-[100%] flex-wrap items-center justify-center gap-y-1 text-[0.9rem] font-medium text-gray-400 sm:w-[initial] sm:flex-nowrap sm:gap-5">
+        <ul className="flex w-[100%] gap-4 flex-wrap items-center justify-center  text-[0.9rem] font-medium text-gray-400 sm:w-[initial] sm:flex-nowrap sm:gap-5">
           {/* <NavLink to="/" exact className="mx-2 hover:text-[#1E4847] w-[100%]">
             Home
           </NavLink>
@@ -26,9 +26,9 @@ const NavLinks = () => {
           {links.map((link) => (
             <NavLink
               className={clsx(
-                "flex  text-white items-center justify-center px-2 py-3 hover:text-gray-950 transition",
+                "flex  text-white items-center justify-center px-2 py-3 hover:text-gray-950 transition w-[100px]",
                 {
-                  "text-[#1E4847] font-bold bg-gray-300 rounded-md":
+                  "text-green-950 font-bold bg-gray-100 rounded-md hover:text-green-700 hover:bg-gray-300":
                     activeSection === link.name,
                 }
               )}

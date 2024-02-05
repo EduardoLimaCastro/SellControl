@@ -11,8 +11,8 @@ import Login from "./login/Pages/Login";
 import MainNavigation from "./shared/Components/Navigation/MainNavigation";
 import SideMenu from "./shared/Components/Navigation/SideMenu";
 import ActiveSectionContextProvider from "./shared/Context/ActiveSectionContext";
-import SuppliersDashboardSite from "./suppliers/Pages/DashboardSite";
-import ActiveSubSectionContextProvider from "./shared/Context/SubsectionContext";
+import InsertSuppliersSite from "./suppliers/Pages/InsertSuppliersSite";
+import SearchSuppliersSite from "./suppliers/Pages/SearchSuppliersSite";
 
 function App() {
   return (
@@ -28,14 +28,15 @@ function App() {
               <Route path="/" exact>
                 <Login />
               </Route>
-              <ActiveSubSectionContextProvider>
-                <Route path="/suppliers" exact>
-                  <SuppliersSite />
-                </Route>
-                <Route path="/suppliers/dashboard" exact>
-                  <SuppliersDashboardSite />
-                </Route>
-              </ActiveSubSectionContextProvider>
+              <Route path="/suppliers" exact>
+                <SuppliersSite />
+              </Route>
+              <Route path="/suppliers/cadastro" exact>
+                <InsertSuppliersSite />
+              </Route>
+              <Route path="/suppliers/consulta" exact>
+                <SearchSuppliersSite />
+              </Route>
               <Redirect to={"/"} exact />
             </Switch>
           </main>

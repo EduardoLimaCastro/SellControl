@@ -1,12 +1,12 @@
-const SuppliersDashboardSite = () => {
+const InsertSuppliersSite = () => {
   return (
     <section
       className="bg-[#EBF2FC] h-screen w-[100%] pt-[60px]"
       id="suppliers"
     >
-      <p>Dashboard</p>
+      <p>Inserir Fornecedor</p>
     </section>
   );
 };
 
-export default SuppliersDashboardSite;
+export default InsertSuppliersSite;

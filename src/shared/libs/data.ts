@@ -15,7 +15,7 @@ export const sidelinks = [
   {
     secao: "Fornecedores",
     subsecao: "Dashboard",
-    to: "dashboard",
+    to: "",
   },
   {
     secao: "Fornecedores",

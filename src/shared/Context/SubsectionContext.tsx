@@ -7,35 +7,37 @@ type ActiveSubSectionContextProviderProps = {
   children: React.ReactNode;
 };
 
-type supplierContextType = {
-  activeSubSection: SubSectionName;
+type ActiveSubSectionContextType = {
+  activeSubection: SubSectionName;
   setActiveSubSection: React.Dispatch<React.SetStateAction<SubSectionName>>;
 };
 
-export const supplierContext = createContext<supplierContextType | null>(null);
+export const SubSectionContext =
+  createContext<ActiveSubSectionContextType | null>(null);
 
 export default function ActiveSubSectionContextProvider({
   children,
 }: ActiveSubSectionContextProviderProps) {
-  const [activeSubSection, setActiveSubSection] =
+  const [activeSubection, setActiveSubSection] =
     useState<SubSectionName>("Dashboard");
   return (
-    <supplierContext.Provider
+    <SubSectionContext.Provider
       value={{
-        activeSubSection,
+        activeSubection,
         setActiveSubSection,
       }}
     >
       {children}
-    </supplierContext.Provider>
+    </SubSectionContext.Provider>
   );
 }
+
 export function useActiveSubSectionContext() {
-  const context = useContext(supplierContext);
+  const context = useContext(SubSectionContext);
 
   if (context === null) {
     throw new Error(
-      "useActiveSubSectionContext must be used within an ActiveSSubectionContextProvider"
+      "useActiveSectionContext must be used within an ActiveSectionContextProvider"
     );
   }
 

@@ -64,6 +64,11 @@ const SuppliersSite = () => {
                 onChange={onChangeSearch}
                 inputProps={{ maxLength: 18 }}
                 value={cnpjSearch}
+                onKeyDown={(event) => {
+                  if (event.key == "Enter") {
+                    searchButtonClick();
+                  }
+                }}
               />
             </FormControl>
             <IconButton
