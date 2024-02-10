@@ -27,4 +27,4 @@ export const sidelinks = [
     subsecao: "Consulta",
     to: "consulta",
   },
-];
+] as const;

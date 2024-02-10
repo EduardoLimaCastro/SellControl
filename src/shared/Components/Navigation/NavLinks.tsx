@@ -23,12 +23,12 @@ const NavLinks = () => {
           >
             Fornecedores
           </NavLink> */}
-          {links.map((link) => (
+          {links.map((link, index) => (
             <NavLink
               className={clsx(
-                "flex  text-white items-center justify-center px-2 py-3 hover:text-gray-950 transition w-[100px]",
+                "flex items-center justify-center px-2 py-3 hover:text-gray-950 transition w-[100px]",
                 {
-                  "text-green-950 font-bold bg-gray-100 rounded-md hover:text-green-700 hover:bg-gray-300":
+                  "text-black font-bold bg-gray-100 rounded-md hover:text-green-950 hover:bg-gray-300":
                     activeSection === link.name,
                 }
               )}
@@ -36,6 +36,7 @@ const NavLinks = () => {
               onClick={() => {
                 setActiveSection(link.name);
               }}
+              key={index}
             >
               {link.name}
             </NavLink>

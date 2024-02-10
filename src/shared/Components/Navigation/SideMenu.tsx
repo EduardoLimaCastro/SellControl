@@ -2,13 +2,13 @@ import { NavLink } from "react-router-dom";
 import { useActiveSectionContext } from "../../Context/ActiveSectionContext";
 import { sidelinks } from "../../libs/data";
 import clsx from "clsx";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const SideMenu = () => {
   type subsectionType = (typeof sidelinks)[number]["subsecao"];
 
   const { activeSection } = useActiveSectionContext();
-  const [subSection, SetSubSection] = useState<subsectionType>();
+  const [subSection, SetSubSection] = useState<subsectionType>("Dashboard");
 
   return (
     <aside>
@@ -20,7 +20,7 @@ const SideMenu = () => {
               sidelink.secao === activeSection && (
                 <NavLink
                   className={clsx(
-                    " rounded-lg p-4 border-2 border-black/50 w-[80%] bg-white hover:text-green-950 hover:bg-gray-200",
+                    " rounded-lg p-4 border-2 border-black/50 w-[80%] hover:text-green-950 hover:bg-gray-200",
                     {
                       " text-white  font-bold rounded-md bg-green-950":
                         subSection === sidelink.subsecao,

@@ -1,15 +1,16 @@
 import SupplierItem from "./SupplierItem";
 
 export type SupplierListProps = {
-  cnpj: String;
-  razao_social: String;
-  logradouro: String;
-  numero: String;
-  complemento: String;
-  bairro: String;
-  cep: Number;
-  uf: String;
-  ddd_telefone_1: String;
+  cnpj: string;
+  razao_social: string;
+  municipio: string;
+  logradouro: string;
+  numero: string;
+  complemento: string;
+  bairro: string;
+  cep: string;
+  uf: string;
+  ddd_telefone_1: string;
 };
 
 export default function SupplierList(props: SupplierListProps) {
@@ -26,6 +27,7 @@ export default function SupplierList(props: SupplierListProps) {
       <SupplierItem
         cnpj={props.cnpj}
         razao_social={props.razao_social}
+        cidade={props.municipio}
         logradouro={props.logradouro}
         numero={props.numero}
         complemento={props.complemento}
